@@ -1,0 +1,48 @@
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData.light().copyWith(
+        primaryColor: Colors.red,
+      ),
+      home: Scaffold(
+        body: SafeArea(
+          child: NestedScrollView(
+              headerSliverBuilder: (context, innerBoxIsScrolled) => [
+                    SliverAppBar(
+                      title: new Text("Sliver Appbar"),
+                      centerTitle: true,
+                      floating: true,
+                      snap: true,
+                    ),
+                  ],
+              body: ListView(
+                // avoid the safe area top padding
+                padding: EdgeInsets.only(top: 0.0),
+
+                children: <Widget>[
+                  ListTile(title: Text("Row 1")),
+                  ListTile(title: Text("Row 2")),
+                ],
+              )),
+        ),
+      ),
+
+//      home: Scaffold(
+//          appBar: AppBar(
+//            title: Text("Normal Appbar"),
+//          ),
+//          body: ListView(
+//            // avoid the safe area top padding
+//            padding: EdgeInsets.only(top: 0.0),
+//
+//            children: <Widget>[
+//              ListTile(title: Text("Row 1")),
+//              ListTile(title: Text("Row 2")),
+//            ],
+//          )),
+    );
+  }
+}
