@@ -8,6 +8,8 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.red,
       ),
       home: Scaffold(
+      // I'm using RED as primary color, Using safe area turns status bar into white, why?
+      // how do I make status bar same as appbar (RED) and bring back all notifications on status bar??
         body: SafeArea(
           child: NestedScrollView(
               headerSliverBuilder: (context, innerBoxIsScrolled) => [
